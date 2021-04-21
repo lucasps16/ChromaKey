@@ -1,0 +1,29 @@
+CHROMA KEY CON HILOS POSIX
+
+Este programa utiliza C++ y OpenCV para paralelizar el chroma key, para pantalla verde, dadas dos imagenes del mismo tamano.
+Para ejecutar este programa se debe tener instalado OpenCV 4.5.2 y C++11.
+Para verificar la instalacion de OpenCV puede ejecutar el comando "$ pkg-config --modversion opencv4", esto debe retornar la version de OpenCV instalado.
+
+INSTRUCCIONES:
+1. Abra la terminal y dirijase a la carpeta donde se encunetra el archivo image-effect.cpp
+2. Para compilar el archivo ejecute el comando "$ g++ image-effect.cpp -o ImageEffect -std=c++11  `pkg-config --cflags --libs opencv4` -lpthread"
+3. Para ejecutar el programa corra el comando: 
+            "$ ./ImageEffect {nombre imagen de fondo} {nombre imagen con fondo verde} {nombre imagen final} {numero de hilos}"
+   EJEMPLO: "$ ./ImageEffect 720bg.jpg 720fg.jpg 720out_16.jpg 4"
+4. Tenga en cuenta que las imagenes se deben encontrar en el mismo directorio donde se encuentra el archivo image-effect.cpp
+   y deben tener la misma resolucion para que el programa se ejecute de manera correcta.
+5. Se generara una imagen con el nombre proporcionado y con el chroma key aplicado y se generara el archivo info.txt donde se 
+   encuentra informacion sobre el tiempo de ejecucion.
+
+
+
+
+
+INSTRUCCIONES (EJECUCION CON SCRIPT):
+1. Abra la terminal y dirijase a la carpeta donde se encuentra el archivo script_ejecutar_todo.sh
+2. En la terminal ejecute el siguiente comando "$ chmod +x script_ejecutar_todo.sh"
+3. En seguida ejecute el comando "./script_ejecutar_todo.sh", espere a que el comando termine de ejecutarse
+4. Este script ejecuta el archivo image-effect.cpp con el par de imagenes 720bg.jpg 720fg.jpg , 1080bg.jpg 1080fg.jpg y 4kbg.jpg 4kfg.jpg
+   y con cada uno de estos pares de imagenes se ejecutara el programa con 1, 2, 4, 8 y 16 hilos.
+5. Se generaran multiples archivos de las imagenes con el chroma key aplicado y un archivo info.txt donde se encuentran los tiempos de
+   de ejecucion de cada chroma key hecho.
